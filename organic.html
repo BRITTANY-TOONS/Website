@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Organic🌿</title>
+    <style>
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(135deg, #eaffd0 0%, #b6f5a0 40%, #4caf50 100%);
+    color: #222;
+}
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    background: transparent;
+    z-index: 10;
+    padding: 2rem 0 0 0;
+}
+.site-title {
+    position: fixed;
+    top: 1.2rem;
+    left: 2.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: #111;
+    display: flex;
+    align-items: center;
+    z-index: 11;
+    letter-spacing: 0.03em;
+}
+.site-title .icon {
+    margin-left: 0.3rem;
+    font-size: 1.5rem;
+}
+.navbar-box {
+    background: #fff;
+    border-radius: 2rem;
+    box-shadow: 0 2px 12px #b6f5a0;
+    padding: 0.7rem 2.5rem;
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+.navbar a {
+    color: #222;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1.1rem;
+    padding: 0.5rem 0.8rem;
+    border-radius: 1rem;
+    transition: background 0.2s, color 0.2s;
+}
+.navbar a:hover {
+    background: #eaffd0;
+    color: #388e3c;
+}
+.phone {
+    background: #4caf50;
+    color: #fff;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 1.2rem;
+    margin-left: 1rem;
+    font-size: 1.05rem;
+}
+.hero-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10rem 5vw 3rem 5vw;
+    background: linear-gradient(120deg, #eaffd0 60%, #b6f5a0 100%);
+    border-radius: 0 0 3rem 3rem;
+    box-shadow: 0 8px 32px #b6f5a0;
+    position: relative;
+    z-index: 1;
+}
+.hero-content {
+    max-width: 520px;
+    z-index: 2;
+}
+.hero-title {
+    font-size: 2.7rem;
+    font-weight: bold;
+    margin-bottom: 1.2rem;
+    line-height: 1.1;
+}
+.hero-title .highlight {
+    color: #4caf50;
+}
+.hero-title .freshness {
+    color: #222;
+    font-size: 2rem;
+    font-weight: 600;
+}
+.hero-desc {
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+.hero-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+}
+.green-btn {
+    background: #4caf50;
+    color: #fff;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 1.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 2px 8px #b6f5a0;
+}
+.join-btn {
+    background: #fff;
+    color: #111;
+    border: 2px solid #111;
+    border-radius: 1.5rem;
+    padding: 0.7rem 1.7rem;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    margin-left: 0.2rem;
+}
+.hero-social {
+    display: flex;
+    gap: 0.7rem;
+    margin-bottom: 1.2rem;
+}
+.social-btn {
+    background: #f3eff1;
+    color: #222;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 1.1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+.social-btn .icon {
+    font-size: 1.3rem;
+    vertical-align: middle;
+}
+.social-btn .youtube { color: #f00; }
+.social-btn .instagram { color: #c13584; }
+.social-btn .facebook { color: #1877f3; }
+.social-btn .x { color: #111; }
+.social-btn .amazon { color:#111; }
+.hero-image-stats {
+    position: relative;
+    width: 370px;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-image-green-bg {
+    background: #4caf50;
+    border-radius: 50%;
+    width: 320px;
+    height: 320px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px #b6f5a0;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+}
+.hero-image-green-bg .main-img {
+    width: 220px;
+    height: 270px;
+    object-fit: cover;
+    border-radius: 2.5rem;
+    box-shadow: 0 4px 24px #2222;
+    z-index: 3;
+    background: transparent;
+}
+.hero-stats-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 370px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 4;
+    pointer-events: none;
+}
+.stat-btn {
+    background: #fff;
+    color: #222;
+    border-radius: 1.2rem;
+    box-shadow: 0 2px 8px #b6f5a0;
+    padding: 0.7rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    margin: 0.5rem 0;
+    min-width: 120px;
+    pointer-events: auto;
+}
+.below-title {
+    position: absolute;
+    top: 4.2rem;
+    left: 2.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    z-index: 12;
+}
+.green-banner-btn {
+    background: #4caf50;
+    color: #111;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    border-radius: 1.5rem;
+    padding: 0.7rem 2.2rem;
+    margin-bottom: 0.7rem;
+    box-shadow: 0 2px 8px #b6f5a0;
+    letter-spacing: 0.01em;
+    text-transform: none;
+}
+.green-banner-btn span {
+    color: #111;
+    font-size: 1.1rem;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.2;
+}
+.social-row {
+    display: flex;
+    gap: 0.5rem;
+}
+.social-icon-btn {
+    background: #fff;
+    border: none;
+    border-radius: 1.2rem;
+    padding: 0.4rem 0.7rem;
+    box-shadow: 0 2px 8px #b6f5a0;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    transition: box-shadow 0.2s;
+}
+.social-icon-btn img {
+    width: 24px;
+    height: 24px;
+    display: block;
+}
+@media (max-width: 900px) {
+    .below-title {
+        position: static;
+        margin: 1.5rem 0 0 1rem;
+    }
+    .hero-section {
+        flex-direction: column;
+        padding: 13rem 2vw 3rem 2vw;
+    }
+    .hero-image-stats {
+        width: 90vw;
+        height: 250px;
+    }
+    .hero-image-green-bg {
+        width: 180px;
+        height: 180px;
+    }
+    .hero-image-green-bg .main-img {
+        width: 100px;
+        height: 120px;
+    }
+    .hero-stats-circle {
+        width: 180px;
+        height: 250px;
+    }
+    .stat-btn {
+        min-width: 80px;
+        font-size: 0.9rem;
+        padding: 0.5rem 0.7rem;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="site-title">Organic<span class="icon">🌿</span></div>
+    <div class="below-title">
+        <button class="green-banner-btn">
+            <span>organic foods<br>at your doorstep</span>
+        </button>
+        <div class="social-row">
+            <button class="social-icon-btn"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384060.png" alt="YouTube"/></button>
+            <button class="social-icon-btn"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384063.png" alt="Instagram"/></button>
+            <button class="social-icon-btn"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384053.png" alt="Facebook"/></button>
+            <button class="social-icon-btn"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X"/></button>
+            <button class="social-icon-btn"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384062.png" alt="LinkedIn"/></button>
+        </div>
+    </div>
+    <nav class="navbar">
+        <div class="navbar-box">
+            <a href="#about">About Us</a>
+            <a href="#product">Product</a>
+            <a href="#resources">Resources</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#blog">Blog</a>
+            <span class="phone">+123 456 7890</span>
+        </div>
+    </nav>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Organic Foods<br>at <span class="highlight">Your Doorstep</span><br>
+                <span class="freshness">Freshness Delivered.</span>
+            </h1>
+            <p class="hero-desc">Organic means natural, clean, and pure. Discover effective, farm-fresh products delivered to your home.</p>
+            <div class="hero-actions">
+                <button class="green-btn">START SHOPPING</button>
+                <button class="join-btn">JOIN NOW</button>
+            </div>
+        </div>
+        <div class="hero-image-stats">
+            <div class="hero-stats-circle">
+                <div class="stat-btn"><b>14k+</b><br><span>Product Sold</span></div>
+                <div class="stat-btn"><b>13k+</b><br><span>Happy Customers</span></div>
+                <div class="stat-btn"><b>18k+</b><br><span>Product Reviews</span></div>
+            </div>
+            <div class="hero-image-green-bg">
+                <img class="main-img" src="https://img.freepik.com/free-photo/young-handsome-man-holding-paper-bag-full-vegetables-isolated-white-background_1368-101097.jpg" alt="Organic Delivery" />
+            </div>
+        </div>
+    </section>
+    <section class="products-section">
+        <h2>Best selling products</h2>
+        <div class="products-list">
+            <div class="product-card">
+                <img src="https://img.freepik.com/free-photo/side-view-burger-with-lettuce-tomato_141793-15542.jpg" alt="Burger">
+                <div class="product-name">Whole Grain Oatmeal</div>
+                <div class="product-price">$36.00 <span>$30.00</span></div>
+            </div>
+            <div class="product-card">
+                <img src="https://img.freepik.com/free-photo/green-lettuce-leaves-isolated-white_2829-11049.jpg" alt="Lettuce">
+                <div class="product-name">Whole Grain Oatmeal</div>
+                <div class="product-price">$36.00 <span>$30.00</span></div>
+            </div>
+            <div class="product-card">
+                <img src="https://img.freepik.com/free-photo/bowl-oatmeal-isolated-white_93675-131634.jpg" alt="Oatmeal">
+                <div class="product-name">Whole Grain Oatmeal</div>
+                <div class="product-price">$36.00 <span>$30.00</span></div>
+            </div>
+            <div class="product-card">
+                <img src="https://img.freepik.com/free-photo/bowl-oatmeal-isolated-white_93675-131634.jpg" alt="Oatmeal">
+                <div class="product-name">Whole Grain Oatmeal</div>
+                <div class="product-price">$36.00 <span>$30.00</span></div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
